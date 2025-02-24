@@ -34,7 +34,6 @@ Ensure the following software is installed on your system:
 git clone https://github.com/your-username/cupcake-carbon-cycle.git
 cd cupcake-carbon-cycle
 ```
-
 ---
 
 ## **3. Backend Setup (Flask + PostgreSQL)**
@@ -51,3 +50,38 @@ source venv/bin/activate
 pip install flask flask-cors flask-sqlalchemy psycopg2 gunicorn
 pip freeze > requirements.txt
 ```
+
+
+### **Step 4: Set Up PostgreSQL Database**
+```sh
+psql postgres
+CREATE DATABASE carbon_cycle;
+CREATE USER admin WITH ENCRYPTED PASSWORD 'password';
+GRANT ALL PRIVILEGES ON DATABASE carbon_cycle TO admin;
+```
+
+### **Step 5: Run the Backend**
+```sh
+python app.py
+```
+Test API:
+```sh
+curl http://127.0.0.1:5000/data
+```
+
+---
+
+## **4. Frontend Setup (React)**
+
+### **Step 6: Set Up React App**
+```sh
+cd ../frontend
+npx create-react-app .
+npm install axios chart.js react-chartjs-2
+```
+
+### **Step 7: Run Frontend Locally**
+```sh
+npm start
+```
+---
