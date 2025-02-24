@@ -68,7 +68,6 @@ Test API:
 ```sh
 curl http://127.0.0.1:5000/data
 ```
-
 ---
 
 ## **4. Frontend Setup (React)**
@@ -85,3 +84,61 @@ npm install axios chart.js react-chartjs-2
 npm start
 ```
 ---
+## **5. Deployment**
+
+### **Step 8: Deploy Backend to Render**
+1. Go to **[Render](https://render.com/)** > **New Web Service**
+2. Connect your **GitHub repository**
+3. Set **Root Directory** to `backend/`
+4. **Build Command:**
+   ```sh
+   pip install -r requirements.txt
+   ```
+5. **Start Command:**
+   ```sh
+   gunicorn app:app
+   ```
+6. Deploy and get the **Render backend URL** (e.g., `https://your-backend-service.onrender.com`)
+
+---
+
+### **Step 9: Deploy Frontend to Vercel**
+1. Install **Vercel CLI** (if not installed):
+   ```sh
+   npm install -g vercel
+   ```
+2. Build the frontend:
+   ```sh
+   npm run build
+   ```
+3. Deploy to Vercel:
+   ```sh
+   vercel
+   ```
+4. Get the **Vercel frontend URL** (e.g., `https://your-frontend.vercel.app`)
+
+---
+
+## **6. Testing & Verification**
+- Open **Frontend URL**: `https://your-frontend.vercel.app`
+- Ensure **data loads correctly from the backend**.
+- Use **Developer Console (F12)** → **Network Tab** to debug API calls.
+- If issues persist, **check Render logs** under `Logs` tab.
+
+---
+
+## **7. Final Summary**
+### ✅ **Local Development**
+```sh
+# Run Backend
+cd backend && python app.py
+
+# Run Frontend
+cd frontend && npm start
+```
+
+### ✅ **Deployment**
+- **Backend** → Render (`https://your-backend-service.onrender.com`)
+- **Frontend** → Vercel (`https://your-frontend.vercel.app`)
+
+🚀 **Congratulations! Your CupCake Carbon Cycle Model is live!** 🎉
